@@ -1,0 +1,19 @@
+# .goreleaser.yml
+
+builds:
+  - id: "api"
+
+    main: ./main.go
+    binary: api.oid-explorer.com
+
+    env:
+      - CGO_ENABLED=0
+
+archives:
+  - builds:
+      - api
+
+    replacements:
+      amd64: 64-bit
+      386: 32-bit
+      darwin: macOS
